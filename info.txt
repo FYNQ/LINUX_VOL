@@ -1,0 +1,3 @@
+Provides linux-stable source in docker volume
+
+Updated every 24hs

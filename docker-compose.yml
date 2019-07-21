@@ -1,0 +1,28 @@
+# Docker Compose file: Nice to have an up-to date linux
+# source tree so other containers can clone locally.
+
+# Build with:
+# docker-compose build linux_src
+
+# Run with:
+# docker-compose up
+
+version: '3'
+services:
+  linux_src:
+    build:
+      context: .
+    container_name: LINUX_REPO
+    volumes:
+      - linux_src:/home/user/linux-stable
+
+volumes:
+  linux_src:
+    external: true
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+
