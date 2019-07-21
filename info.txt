@@ -1,3 +1,5 @@
 Provides linux-stable source in docker volume
 
-Updated every 24hs
+To update run:
+
+docker exec -it LINUX_REPO python3 /home/user/src/update_kernel.py

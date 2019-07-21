@@ -8,9 +8,6 @@
 
 # user/passwort to login containter: user/nopasswd
 
-# If you have a proxy cache activate and edit the line:
-# echo 'Acquire::http { Proxy "http://192.168.2.42:3142"; }; ....
-#
 ###############################################################################
 #                                INSTALLATION
 ###############################################################################
@@ -41,7 +38,6 @@ RUN chown -R user:user /home/user
 
 USER user
 ENV HOME /home/user
+RUN cd /home/user/ && git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
 WORKDIR /home/user/src
-#CMD python3 update_kernel.py start \
-CMD /home/user/src/has_cloned.sh \
-    && tail -n 2 -f info.txt
+CMD tail -n 2 -f info.txt
